@@ -121,10 +121,10 @@ function init() {
     }, () => {
       elements.cards.bio.animate({
         opacity: '0.99',
-        duration: 400,
+        duration: 300,
       });
     });
-    elements.section.about.fadeIn(500);
+    elements.section.about.fadeIn(300);
     elements.cards.bio.animate({
       height: 'toggle',
       delay: 50,
@@ -133,7 +133,7 @@ function init() {
       // listeners.splashResize();
       setTimeout(() => {
         typeAnimation('Benjamin', 'Rose');
-      }, 400)
+      }, 150)
     });
   }
 

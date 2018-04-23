@@ -60,9 +60,10 @@ section {
 }
 
 #about-card {
-    background: rgba(136, 0, 249, 0.39);
+    background: rgba(61, 40, 78, 0.63);
     overflow: hidden;
     opacity: 0;
+    box-shadow: #00000054 5px 8px 14px 8px;
     /*transition: height 500ms;*/
 }
 
