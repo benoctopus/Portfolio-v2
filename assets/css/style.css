@@ -1,7 +1,29 @@
+
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
 body {
     background: rgba(0, 0, 0, 0.82);
     display: none;
 }
+
+section {
+    overflow: hidden;
+    display: none;
+}
+
+.title {
+    font-family: 'Do Hyeon', sans-serif !important;
+}
+
+/*.splash {*/
+    /*position: absolute;*/
+    /*opacity: 0;*/
+    /*transition: opacity 500ms;*/
+    /*top: 55px;*/
+    /*min-width: 100%;*/
+/*}*/
 
 /*nav bar*/
 
@@ -15,7 +37,7 @@ body {
 }
 
 .i-underline {
-    transition: none;
+    transition: background-color 300ms;
     background: #4f4a4c !important;
 }
 
@@ -24,17 +46,36 @@ body {
     cursor: default;
 }
 
+.ic {
+    display: none;
+}
+
 
 /*about */
 
-#about-card {
-    width: 0;
-    transition: width 500ms;
+#about-row {
+    background-image: url('../../assets/images/milky-way.jpg');
+    background-size: 100%;
+    background-blend-mode: color-burn;
 }
 
-.about-toggled {
-    width: initial;
+#about-card {
+    background: rgba(136, 0, 249, 0.39);
+    overflow: hidden;
+    opacity: 0;
+    /*transition: height 500ms;*/
 }
+
+#name {
+    font-size: 60px;
+}
+
+#name-div {
+    height: 75px;
+    margin-bottom: 20px;
+}
+
+
 
 /*viewport media queries*/
 
@@ -64,6 +105,9 @@ body {
 }
 
 @media only screen and (min-width: 1200px) {
+    p {
+        font-size: 20px;
+    }
     .nav-icons {
         height: 54px;
     }
