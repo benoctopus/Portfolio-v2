@@ -1,0 +1,50 @@
+-
+  var mobIcons = [
+  {
+  src: 'assets/images/icons/if_Account_2202250.svg',
+  id: 'nav-about'
+  },
+  {
+  src: 'assets/images/icons/if_Chat_bubble_2202260.svg',
+  id: 'nav-contact'
+  },
+  {
+  src: 'assets/images/icons/if_Folder_2202274.svg',
+  id: 'nav-portfolio'
+  }
+  ]
+
+doctype html
+html(lang='en')
+
+  head
+    title Benjamin Rose
+    meta(charset='utf-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+    link(rel='stylesheet' type='text/css' href='assets/css/bootstrap.min.css')
+    link(rel='stylesheet' type='text/css' href='assets/css/style.css')
+    script(src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous")
+
+  body
+
+    header.container-fluid
+
+      .row.justify-content-center.navbar-dark.bg-dark.border-bottom.border-light.text-center
+        .col-12
+          .row.justify-content-center
+            each attr in mobIcons
+              .col-auto.bg-danger.nav-icons.mr-2.ml-2
+                img.p-2(alt='icon' style="height: inherit")&attributes(attr)
+
+    section.container-fluid.justify-content-center
+      .row
+
+
+
+
+
+  script(src="assets/javascript/logic.js")
+  script(src="assets/javascript/decoration.js")
+

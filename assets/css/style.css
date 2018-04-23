@@ -1,0 +1,59 @@
+body {
+    background: rgba(0, 0, 0, 0.82);
+    display: none;
+}
+
+/*nav bar*/
+
+.nav-icons {
+    transition: background-color 250ms;
+}
+
+.nav-icons:hover {
+    background: rgba(220, 53, 69, 0.77) !important;
+    cursor: pointer;
+}
+
+.i-underline {
+    transition: none;
+    background: #4f4a4c !important;
+}
+
+.i-underline:hover {
+    background: #4f4a4c !important;
+    cursor: default;
+}
+
+
+/*viewport media queries*/
+
+@media only screen and (max-width: 600px) {
+    .nav-icons {
+        height: 40px;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .nav-icons {
+        height: 40px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .nav-icons {
+        height: 40px;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .nav-icons {
+        height: 40px;
+    }
+
+}
+
+@media only screen and (min-width: 1200px) {
+    .nav-icons {
+        height: 54px;
+    }
+}
