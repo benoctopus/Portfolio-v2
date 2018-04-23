@@ -25,6 +25,17 @@ body {
 }
 
 
+/*about */
+
+#about-card {
+    width: 0;
+    transition: width 500ms;
+}
+
+.about-toggled {
+    width: initial;
+}
+
 /*viewport media queries*/
 
 @media only screen and (max-width: 600px) {
