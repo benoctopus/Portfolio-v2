@@ -8,7 +8,8 @@ function createCommon() {
     body: $(document.body),
     splash: $('.splash'),
 
-    cards: {
+    boxes: {
+      aboutRow: $('#about-row'),
       bio: $('#about-card')
     },
 
@@ -43,6 +44,25 @@ function createCommon() {
           elements.nav.portfolio.parent().addClass('i-underline');
           break;
       }
+    },
+
+    modSpace: () => {
+
+      elements.boxes.aboutRow.animate(
+        {'background-position-x': "+=15.5px"},
+        {
+          duration: 500,
+          easing: 'swing',
+          done: () => {
+            elements.boxes.aboutRow.animate(
+              {'background-position-x': "-=15.5px"},
+              {
+                duration: 500,
+                easing: 'swing',
+                done: decoration.modSpace
+              });
+          }
+        });
     }
   };
 
@@ -61,7 +81,7 @@ function createCommon() {
 
       function splashHelper() {
         elements.splash.css("max-height",
-          elements.cards.bio.height() + 90
+          elements.boxes.bio.height() + 90
         )
       }
 
@@ -114,44 +134,63 @@ function init() {
   function introAnimation() {
     $(document.body).css('display', 'block');
     listeners.headFiller();
-    $(".ic").fadeIn(600);
-    elements.header.animate({
-      height: 'toggle',
-      duration: 200,
-    }, () => {
-      elements.cards.bio.animate({
-        opacity: '0.99',
-        duration: 300,
+    $(".ic").fadeIn(450);
+    elements.header.animate(
+      {height: 'toggle'},
+      {
+        duration: 150,
+        easing: 'swing',
+        done: () => {
+          elements.boxes.bio.animate(
+            {opacity: '0.99'},
+            {
+              duration: 200,
+              easing: 'linear',
+              done: () => {
+                elements.section.about.fadeIn(10);
+                elements.boxes.aboutRow.animate(
+                  {
+                    height: 'toggle'
+                  },
+                  {
+                    duration: 500,
+                    easing: 'swing',
+                    queue: true,
+                    done: () => {
+                      // listeners.splashResize();
+                      setTimeout(() => {
+                        typeAnimation('Benjamin', 'Rose');
+                      }, 150)
+                    }
+                  });
+              }
+            },
+          );
+        }
       });
-    });
-    elements.section.about.fadeIn(300);
-    elements.cards.bio.animate({
-      height: 'toggle',
-      delay: 50,
-      duration: 500,
-    }, () => {
-      // listeners.splashResize();
-      setTimeout(() => {
-        typeAnimation('Benjamin', 'Rose');
-      }, 150)
-    });
   }
 
   function ready() {
     createCommon();
-    elements.cards.bio.animate({
-      height: 'toggle',
-      duration: 10,
-    });
-    elements.header.animate({
-      height: 'toggle',
-      duration: 10,
-    }, () => {
-      $(document).ready(() => {
-        decoration.iconUnderline();
-        introAnimation()
-      });
-    });
+    elements.boxes.aboutRow.animate(
+      {height: 'toggle'},
+      {
+        duration: 0,
+        done: () => {
+          elements.header.animate(
+            {height: 'toggle'},
+            {
+              duration: 0,
+              done: () => {
+                $(document).ready(() => {
+                  decoration.iconUnderline();
+                  introAnimation()
+                });
+              }
+            });
+        }
+      },
+    );
   }
 
   ready()

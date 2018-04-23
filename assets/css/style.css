@@ -56,7 +56,6 @@ section {
 #about-row {
     background-image: url('../../assets/images/milky-way.jpg');
     background-size: 100%;
-    background-blend-mode: color-burn;
 }
 
 #about-card {
@@ -64,7 +63,6 @@ section {
     overflow: hidden;
     opacity: 0;
     box-shadow: #00000054 5px 8px 14px 8px;
-    /*transition: height 500ms;*/
 }
 
 #name {
