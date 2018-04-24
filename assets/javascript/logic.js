@@ -77,20 +77,132 @@ function createCommon() {
       })
     },
 
-    splashResize: () => {
+    navListener: () => {
 
-      function splashHelper() {
-        elements.splash.css("max-height",
-          elements.boxes.bio.height() + 90
-        )
-      }
+      elements.nav.all.on("click", event => {
 
-      splashHelper();
-      $(window, 'section').on('resize', event => {
-        splashHelper()
-      })
+        let clicked = {
+          self: $(event.currentTarget),
+          target: $(event.currentTarget.firstChild).attr('data-target')
+        };
+
+        if (clicked.target !== state) {
+          displaySwitch(clicked.target)
+        }
+      });
     }
   };
+}
+
+function displaySwitch(target) {
+  // custom carousel animation for main site locations
+  //
+
+  function slide(dir, display, target, increment, duplicate) {
+
+    let options = {
+      effect: 'slide',
+      easing: (i !== end && i !== start) ? 'linear': 'swing',
+      direction: dir,
+      duration: (i !== end && i !== start) ? (timing - 100): timing,
+      complete: () => {
+        if (!duplicate) {
+          increment ? i++ : i--;
+        }
+        if (increment ? i > end: i < end) {
+          return
+        }
+        animationLoop(increment, duplicate);
+      }
+    };
+
+    if (display) {
+      $(`#${target}`).show(options)
+    }
+    else {
+      $(`#${target}`).hide(options)
+    }
+  }
+
+  function animationLoop(forward, duplicate) {
+
+    console.log(i, "start", start, "end", end, 'direction', forward);
+
+
+    if (i === start) {
+
+      slide(
+        forward ? 'left' : 'right',
+        false,
+        pos[i.toString()],
+        forward,
+        duplicate
+      )
+    }
+
+    else if ((forward ? i < end: i > end)) {
+
+      console.log("it?");
+      window.state = pos[i.toString()];
+      decoration.iconUnderline();
+
+      slide(
+        forward ?
+          (duplicate ? 'left': 'right'):
+          (duplicate ? 'right': 'left'),
+        !duplicate,
+        pos[i.toString()],
+        forward,
+        !duplicate
+      )
+    }
+    else if (i === end) {
+
+      window.state = pos[i.toString()];
+      decoration.iconUnderline();
+
+      slide(
+        !forward ? 'left' : 'right',
+        true,
+        pos[i.toString()],
+        forward,
+        duplicate
+      )
+    }
+  }
+
+
+  let screens = {
+    about: 0,
+    contact: 1,
+    portfolio: 2
+  };
+
+  let pos = _.invert(screens);
+  let timing = 200;
+  let start = screens[window.state];
+  let i = start;
+  let end = screens[target];
+  animationLoop((start < end), false)
+
+
+  // $(window).scrollTop;
+  // $(`#${state}`).hide({
+  //   effect: 'slide',
+  //   easing: 'swing',
+  //   duration: 250,
+  //   complete: () => {
+  //     $(`#${target}`).show({
+  //       effect: 'slide',
+  //       direction: 'right',
+  //       easing: 'swing',
+  //       duration: 250,
+  //       complete: () => {
+  //         window.state = target
+  //       }
+  //     });
+  //   }
+  // });
 }
 
 function init() {
@@ -157,7 +269,7 @@ function init() {
                     easing: 'swing',
                     queue: true,
                     done: () => {
-                      // listeners.splashResize();
+                      listeners.navListener();
                       setTimeout(() => {
                         typeAnimation('Benjamin', 'Rose');
                       }, 150)
