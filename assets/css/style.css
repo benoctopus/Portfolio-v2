@@ -82,8 +82,15 @@ li, .title {
     background-size: 150%;
     background-repeat: no-repeat;
 }
-#more-row {
-    height: 350px;
+#more-list {
+    height: 320px;
+}
+
+#more-pic {
+    height: inherit !important;
+}
+#more-graphic {
+    height: inherit !important;
 }
 
 .list-group-item {
@@ -99,7 +106,7 @@ li, .title {
 
 /* width */
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 5px;
 }
 
 /* Track */
@@ -114,7 +121,7 @@ li, .title {
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: rgba(85, 85, 85, 0.49);
+    background: rgb(182, 182, 182);
 }
 
 /*viewport media queries*/

@@ -17,6 +17,34 @@
   }
   ]
 
+-
+  var portfolioItems = [
+  {
+  title: 'Brewery Search Engine'
+  },
+  {
+  title: 'Gif Grab'
+  },
+  {
+  title: 'RealTime Rock Paper Scissors'
+  },
+  {
+    title: 'Bootstrap Portfolio'
+  },
+  {
+  title: 'Vanilla js Portfolio'
+  },
+  {
+  title: 'Hang|Man'
+  },
+  {
+  title: 'StarWars RPG'
+  },
+  {
+  title: 'Trivia'
+  }
+  ]
+
 doctype html
 html(lang='en')
 
@@ -37,12 +65,17 @@ body
             .row.justify-content-center
               .col-auto
                 .row.position-relative
-                  each attr in mobIcons
+                each attr in mobIcons
                     .col-auto.bg-danger.nav-icons.mr-2.ml-2.position-relative.float-left
                       img.p-2.ic(alt='icon' style="height: inherit")&attributes(attr)
   header.container-fluid.top-filler
 
-  .wrapper.container-fluid.p-0
+  footer.container-fluid.position-fixed.fixed-bottom.navbar-dark.bg-dark.border-top.border-secondary.p2
+    .row.justify-content-center
+      .col-auto.text-center.text-light
+        .p &copy; Benjamin Rose 2018
+
+  .wrapper.container-fluid.p-0.mb-4
     section.col-12#about
       //img.splash(src='assets/images/milky-way.jpg')
       .row.justify-content-center.border-secondary.border-bottom.p-0#about-row
@@ -61,7 +94,7 @@ body
                   p As for the skills I have developed in chasing this dream, I have a wide breadth of experience in developing web and desktop applications in a variety of programming languages including javaScript, html, css, Python/Django, Ruby/Rails, and Java. I also have a bit of experience developing software for IoT devices such as the Arduino and RaspberryPi units.
       .row.border-secondary.border-bottom.p-0.border-bottom.border-secondary#more-row
         .col-12.col-md-5.h-100.border-right.border-secondary#more-graphic
-          .row.justify-content-center.mt-3
+          .row.justify-content-center.mt-3#more-pic
             .col-auto.text-center.text-light
               p.h1.title Portfolio Preview
 
@@ -70,33 +103,11 @@ body
           //.row.justify-content-center.bg-danger.border-bottom.border-secondary.pt-2
           //  .col-auto.text-light.text-center
           //    p.title.h2 Place Holder!
-          .row.h-100
+          .row
             .col-3.border-right.border-secondary.pre-scrollable.pl-0.pr-0.pb-2.mb-0.h-100
-              ul.p-0.m-0#more-list
-                li.list-group-item.text-light.border-right-0.border-top-0.border-left-0.border-secondary list place
-                li.list-group-item.text-light.border-right-0.border-top-0.border-left-0.border-secondary list place
-                li.list-group-item.text-light.border-right-0.border-top-0.border-left-0.border-secondary list place
-                li.list-group-item.text-light.border-right-0.border-top-0.border-left-0.border-secondary list place
-                li.list-group-item.text-light.border-right-0.border-top-0.border-left-0.border-secondary list place
-                li.list-group-item.text-light.border-right-0.border-top-0.border-left-0.border-secondary list place
-                li.list-group-item.text-light.border-right-0.border-top-0.border-left-0.border-secondary list place
-                li.list-group-item.text-light.border-right-0.border-top-0.border-left-0.border-secondary list place
-                li.list-group-item.text-light.border-right-0.border-top-0.border-left-0.border-secondary list place
-                li.list-group-item.text-light.border-right-0.border-top-0.border-left-0.border-secondary list place
-                li.list-group-item.text-light.border-right-0.border-top-0.border-left-0.border-secondary list place
-                li.list-group-item.text-light.border-right-0.border-top-0.border-left-0.border-secondary list place
-                li.list-group-item.text-light.border-right-0.border-top-0.border-left-0.border-secondary list place
-                li.list-group-item.text-light.border-right-0.border-top-0.border-left-0.border-secondary list place
-                li.list-group-item.text-light.border-right-0.border-top-0.border-left-0.border-secondary list place
-                li.list-group-item.text-light.border-right-0.border-top-0.border-left-0.border-secondary list place
-                li.list-group-item.text-light.border-right-0.border-top-0.border-left-0.border-secondary list place
-                li.list-group-item.text-light.border-right-0.border-top-0.border-left-0.border-secondary list place
-                li.list-group-item.text-light.border-right-0.border-top-0.border-left-0.border-secondary list place
-                li.list-group-item.text-light.border-right-0.border-top-0.border-left-0.border-secondary list place
-                li.list-group-item.text-light.border-right-0.border-top-0.border-left-0.border-secondary list place
-                li.list-group-item.text-light.border-right-0.border-top-0.border-left-0.border-secondary list place
-                li.list-group-item.text-light.border-right-0.border-top-0.border-left-0.border-secondary list place
-                li.list-group-item.text-light.border-right-0.border-top-0.border-left-0.border-secondary list place
+              ul.p-0.m-0.pb-3#more-list
+                each item in portfolioItems
+                  li.list-group-item.text-light.border-right-0.border-top-0.border-left-0.border-secondary #{item.title}
     section.col-12#contact
       //img.splash(src='assets/images/milky-way.jpg')
       .row.justify-content-center.border-secondary.border-bottom.p-0#contact-row
