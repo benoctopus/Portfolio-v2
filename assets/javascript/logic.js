@@ -10,6 +10,7 @@ function createCommon() {
 
     boxes: {
       aboutRow: $('#about-row'),
+      moreRow: $('#more-row'),
       bio: $('#about-card')
     },
 
@@ -73,8 +74,9 @@ function createCommon() {
       let filler = $('.top-filler');
       filler.height(elements.header.height());
       $(window).on('resize', event => {
+        event.preventDefault();
         filler.height(elements.header.height())
-      })
+      });
     },
 
     navListener: () => {
@@ -99,6 +101,7 @@ function displaySwitch(target) {
   //
 
   function slide(dir, display, target, increment, duplicate) {
+    //init slide animation with generated options
 
     let options = {
       effect: 'slide',
@@ -125,10 +128,10 @@ function displaySwitch(target) {
   }
 
   function animationLoop(forward, duplicate) {
-
-
+    // loop through screens and generate options
 
     if (i === start) {
+      //first
 
       slide(
         forward ? 'left' : 'right',
@@ -140,6 +143,7 @@ function displaySwitch(target) {
     }
 
     else if ((forward ? i < end: i > end)) {
+      //middle's
 
       console.log("it?");
       window.state = pos[i.toString()];
@@ -156,6 +160,7 @@ function displaySwitch(target) {
       )
     }
     else if (i === end) {
+      //last
 
       window.state = pos[i.toString()];
       decoration.iconUnderline();
@@ -171,6 +176,7 @@ function displaySwitch(target) {
   }
 
 
+  //setup
   let screens = {
     about: 0,
     contact: 1,
@@ -184,24 +190,6 @@ function displaySwitch(target) {
   let end = screens[target];
   animationLoop((start < end), false)
 
-
-  // $(window).scrollTop;
-  // $(`#${state}`).hide({
-  //   effect: 'slide',
-  //   easing: 'swing',
-  //   duration: 250,
-  //   complete: () => {
-  //     $(`#${target}`).show({
-  //       effect: 'slide',
-  //       direction: 'right',
-  //       easing: 'swing',
-  //       duration: 250,
-  //       complete: () => {
-  //         window.state = target
-  //       }
-  //     });
-  //   }
-  // });
 }
 
 function init() {
@@ -246,6 +234,7 @@ function init() {
     $(document.body).css('display', 'block');
     listeners.headFiller();
     $(".ic").fadeIn(450);
+    elements.boxes.moreRow.fadeOut(1);
     elements.header.animate(
       {height: 'toggle'},
       {
@@ -258,7 +247,8 @@ function init() {
               duration: 200,
               easing: 'linear',
               done: () => {
-                elements.section.about.fadeIn(10);
+                elements.section.about.fadeIn(10, () => {
+                });
                 elements.boxes.aboutRow.animate(
                   {
                     height: 'toggle'
@@ -268,10 +258,15 @@ function init() {
                     easing: 'swing',
                     queue: true,
                     done: () => {
+                      elements.boxes.moreRow.show({
+                        effect: 'blind',
+                        duration: 500,
+                        easing: 'swing'
+                      });
                       listeners.navListener();
                       setTimeout(() => {
                         typeAnimation('Benjamin', 'Rose');
-                      }, 150)
+                      }, 150);
                     }
                   });
               }

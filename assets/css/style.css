@@ -10,12 +10,14 @@ body {
 
 section {
     overflow: hidden;
+    position: relative;
     display: none;
 }
 
-.title {
+li, .title {
     font-family: 'Do Hyeon', sans-serif !important;
 }
+
 
 /*.splash {*/
     /*position: absolute;*/
@@ -55,6 +57,7 @@ section {
 
 #about-row {
     background-image: url('../../assets/images/milky-way.jpg');
+    -webkit-background-size: 100%;
     background-size: 100%;
 }
 
@@ -73,8 +76,46 @@ section {
     height: 75px;
     margin-bottom: 20px;
 }
+#more-graphic {
+    background-image: url("../../assets/images/sunset.jpg");
+    -webkit-background-size: 100%;
+    background-size: 150%;
+    background-repeat: no-repeat;
+}
+#more-row {
+    height: 350px;
+}
 
+.list-group-item {
+    padding: 11px !important;
+    margin: 0 !important;
+    transition: background-color 300ms;
+    background: rgba(255, 255, 255, 0);
+}
+#more-list>li:hover {
+    background: rgba(85, 85, 85, 0.44);
+    cursor: pointer;
+}
 
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: rgba(99, 99, 99, 0.78);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(85, 85, 85, 0.49);
+}
 
 /*viewport media queries*/
 
@@ -82,11 +123,18 @@ section {
     .nav-icons {
         height: 40px;
     }
+    #name {
+        font-size: 45px;
+    }
+
 }
 
 @media only screen and (min-width: 600px) {
     .nav-icons {
         height: 40px;
+    }
+    p {
+        font-size: 20px;
     }
 }
 
@@ -104,9 +152,6 @@ section {
 }
 
 @media only screen and (min-width: 1200px) {
-    p {
-        font-size: 20px;
-    }
     .nav-icons {
         height: 54px;
     }
