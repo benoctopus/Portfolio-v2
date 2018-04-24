@@ -126,7 +126,6 @@ function displaySwitch(target) {
 
   function animationLoop(forward, duplicate) {
 
-    console.log(i, "start", start, "end", end, 'direction', forward);
 
 
     if (i === start) {
@@ -179,7 +178,7 @@ function displaySwitch(target) {
   };
 
   let pos = _.invert(screens);
-  let timing = 200;
+  let timing = 150;
   let start = screens[window.state];
   let i = start;
   let end = screens[target];
