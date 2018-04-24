@@ -18,15 +18,6 @@ li, .title {
     font-family: 'Do Hyeon', sans-serif !important;
 }
 
-
-/*.splash {*/
-    /*position: absolute;*/
-    /*opacity: 0;*/
-    /*transition: opacity 500ms;*/
-    /*top: 55px;*/
-    /*min-width: 100%;*/
-/*}*/
-
 /*nav bar*/
 
 .nav-icons {
@@ -81,6 +72,7 @@ li, .title {
     -webkit-background-size: 100%;
     background-size: 150%;
     background-repeat: no-repeat;
+    background-size: inherit;
 }
 #more-list {
     height: 320px;
@@ -143,12 +135,26 @@ li, .title {
     p {
         font-size: 20px;
     }
+
+    .h1 {
+        font-size: 30px;
+    }
+    .h3 {
+        font-size: 20px;
+    }
 }
 
 @media only screen and (min-width: 768px) {
     .nav-icons {
         height: 40px;
     }
+    .h1 {
+        font-size: 25px;
+    }
+    .h3 {
+        font-size: 20px;
+    }
+
 }
 
 @media only screen and (min-width: 992px) {
@@ -156,10 +162,18 @@ li, .title {
         height: 40px;
     }
 
+
 }
 
 @media only screen and (min-width: 1200px) {
     .nav-icons {
         height: 54px;
     }
+    .h1 {
+        font-size: 50px;
+    }
+    .h3 {
+        font-size: 30px;
+    }
+
 }

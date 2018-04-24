@@ -20,7 +20,7 @@
 -
   var portfolioItems = [
   {
-  title: 'Brewery Search Engine'
+  title: 'Brewery Search'
   },
   {
   title: 'Gif Grab'
@@ -93,21 +93,22 @@ body
 
                   p As for the skills I have developed in chasing this dream, I have a wide breadth of experience in developing web and desktop applications in a variety of programming languages including javaScript, html, css, Python/Django, Ruby/Rails, and Java. I also have a bit of experience developing software for IoT devices such as the Arduino and RaspberryPi units.
       .row.border-secondary.border-bottom.p-0.border-bottom.border-secondary#more-row
-        .col-12.col-md-5.h-100.border-right.border-secondary#more-graphic
+        .col-12.col-md-auto.h-100.border-right.border-secondary#more-graphic
           .row.justify-content-center.mt-3#more-pic
             .col-auto.text-center.text-light
               p.h1.title Portfolio Preview
 
               p.h3.title.mt-2 Click the "Folder" icon for more info
-        .col-12.col-md-7
+        .col-12.col-md
           //.row.justify-content-center.bg-danger.border-bottom.border-secondary.pt-2
           //  .col-auto.text-light.text-center
           //    p.title.h2 Place Holder!
           .row
-            .col-3.border-right.border-secondary.pre-scrollable.pl-0.pr-0.pb-2.mb-0.h-100
+            .col-auto.border-right.border-secondary.pre-scrollable.pl-0.pr-0.pb-2.mb-0.h-100
               ul.p-0.m-0.pb-3#more-list
                 each item in portfolioItems
                   li.list-group-item.text-light.border-right-0.border-top-0.border-left-0.border-secondary #{item.title}
+            .col
     section.col-12#contact
       //img.splash(src='assets/images/milky-way.jpg')
       .row.justify-content-center.border-secondary.border-bottom.p-0#contact-row
